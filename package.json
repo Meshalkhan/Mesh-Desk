@@ -1,0 +1,24 @@
+{
+  "name": "meshdesk",
+  "private": true,
+  "workspaces": ["client", "server", "shared"],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "dev": "concurrently -n api,web -c blue,green \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "install:all": "npm install",
+    "build": "npm run build --workspace meshdesk-client",
+    "build:client": "npm run build --workspace meshdesk-client",
+    "start": "npm run start --workspace meshdesk-server",
+    "start:prod": "npm run start --workspace meshdesk-server",
+    "migrate:settings": "npm run migrate:settings --workspace meshdesk-server",
+    "reset:db": "npm run reset:db --workspace meshdesk-server --",
+    "reset:db:yes": "npm run reset:db --workspace meshdesk-server -- --yes",
+    "seed:ai-models": "npm run seed:ai-models --workspace meshdesk-server",
+    "test": "npm run test --workspace meshdesk-server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}

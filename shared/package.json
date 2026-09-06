@@ -1,0 +1,13 @@
+{
+  "name": "meshdesk-shared",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./schemas/index.js",
+    "./passwordStrength": "./passwordStrength.js"
+  },
+  "dependencies": {
+    "zod": "^3.23.8"
+  }
+}

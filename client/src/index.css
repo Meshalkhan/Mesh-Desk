@@ -1,0 +1,160 @@
+@import './styles/tokens.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+html {
+  transition: background-color var(--duration-normal) var(--ease-out),
+    color var(--duration-normal) var(--ease-out);
+}
+
+body {
+  @apply bg-neutral-bg text-ink antialiased;
+  font-size: var(--text-base);
+  line-height: 1.55;
+}
+
+.text-display {
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.text-heading {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+.text-body {
+  font-size: var(--text-base);
+  line-height: 1.55;
+}
+
+.text-meta {
+  font-size: var(--text-xs);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.text-meta-subtle {
+  font-size: var(--text-xs);
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+:focus-visible {
+  outline: 2px solid rgb(var(--focus-ring));
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.scroll-thin {
+  scrollbar-width: thin;
+  scrollbar-color: rgb(var(--border-subtle)) transparent;
+}
+
+.scroll-thin::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scroll-thin::-webkit-scrollbar-thumb {
+  background: rgb(var(--border-subtle) / 0.8);
+  border-radius: var(--radius-full);
+}
+
+@layer utilities {
+  .motion-safe {
+    @media (prefers-reduced-motion: no-preference) {
+      transition-property: color, background-color, border-color, opacity, transform, box-shadow;
+      transition-duration: var(--duration-normal);
+      transition-timing-function: var(--ease-out);
+    }
+  }
+
+  .animate-modal-in {
+    @media (prefers-reduced-motion: no-preference) {
+      animation: modal-in var(--duration-normal) var(--ease-out);
+    }
+  }
+
+  .animate-modal-backdrop {
+    @media (prefers-reduced-motion: no-preference) {
+      animation: fade-in var(--duration-fast) var(--ease-out);
+    }
+  }
+
+  .animate-message-in {
+    @media (prefers-reduced-motion: no-preference) {
+      animation: message-in var(--duration-normal) var(--ease-out);
+    }
+  }
+}
+
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes message-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.prose-chat {
+  @apply text-sm leading-relaxed;
+}
+
+.prose-chat :where(p):not(:where([class~='not-prose'] *)) {
+  @apply my-2 first:mt-0 last:mb-0;
+}
+
+.prose-chat :where(ul, ol):not(:where([class~='not-prose'] *)) {
+  @apply my-2 pl-5;
+}
+
+.prose-chat :where(a):not(:where([class~='not-prose'] *)) {
+  @apply text-accent underline underline-offset-2;
+}
+
+.prose-chat :where(code):not(:where(pre *)) {
+  @apply rounded px-1.5 py-0.5 text-[0.85em] bg-surface-elevated ring-1 ring-border-subtle/60;
+}
+
+.prose-chat :where(pre) {
+  @apply my-3 overflow-x-auto rounded-lg;
+}

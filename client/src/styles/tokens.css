@@ -1,0 +1,125 @@
+/**
+ * MeshDesk design tokens — Phase 6
+ * data-theme: light | dark
+ * data-mode: ai | team | admin (authenticated shell only)
+ */
+
+:root,
+[data-theme='light'] {
+  color-scheme: light;
+  --neutral-bg: 246 247 249;
+  --surface: 255 255 255;
+  --surface-muted: 246 247 249;
+  --surface-elevated: 255 255 255;
+  --surface-overlay: 26 29 38;
+  --ink: 26 29 38;
+  --ink-muted: 107 114 128;
+  --ink-subtle: 156 163 175;
+  --border-subtle: 227 230 236;
+  --border-strong: 209 213 219;
+  --success: 5 150 105;
+  --success-muted: 209 250 229;
+  --warning: 217 119 6;
+  --warning-muted: 254 243 199;
+  --danger: 220 38 38;
+  --danger-muted: 254 226 226;
+  --accent-ai: 91 108 255;
+  --accent-ai-hover: 71 88 235;
+  --accent-ai-muted: 238 240 255;
+  --accent-team: 13 148 136;
+  --accent-team-hover: 15 118 110;
+  --accent-team-muted: 236 253 249;
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 0.875rem;
+  --radius-2xl: 1rem;
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px rgb(26 29 38 / 0.04);
+  --shadow-md: 0 4px 12px rgb(26 29 38 / 0.08);
+  --shadow-lg: 0 12px 32px rgb(26 29 38 / 0.12);
+  --shadow-card: 0 0 0 1px rgb(var(--border-subtle) / 0.9), var(--shadow-md);
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 0.9375rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.75rem;
+  --duration-fast: 150ms;
+  --duration-normal: 200ms;
+  --duration-slow: 250ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --accent: var(--accent-ai);
+  --accent-hover: var(--accent-ai-hover);
+  --accent-muted: var(--accent-ai-muted);
+  --accent-glow: var(--accent-ai);
+  --focus-ring: var(--accent-ai);
+  --bubble-sent: var(--accent-ai);
+  --bubble-sent-ink: 255 255 255;
+  --bubble-received: 255 255 255;
+  --bubble-received-ink: 26 29 38;
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+  --neutral-bg: 18 20 26;
+  --surface: 26 29 38;
+  --surface-muted: 18 20 26;
+  --surface-elevated: 34 38 47;
+  --surface-overlay: 0 0 0;
+  --ink: 237 239 243;
+  --ink-muted: 156 163 175;
+  --ink-subtle: 107 114 128;
+  --border-subtle: 46 51 64;
+  --border-strong: 71 85 105;
+  --success: 52 211 153;
+  --success-muted: 6 78 59;
+  --warning: 251 191 36;
+  --warning-muted: 120 53 15;
+  --danger: 248 113 113;
+  --danger-muted: 127 29 29;
+  --accent-ai: 123 138 255;
+  --accent-ai-hover: 147 159 255;
+  --accent-ai-muted: 42 45 74;
+  --accent-team: 45 212 191;
+  --accent-team-hover: 94 234 212;
+  --accent-team-muted: 15 46 42;
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.2);
+  --shadow-md: 0 4px 16px rgb(0 0 0 / 0.35);
+  --shadow-lg: 0 16px 40px rgb(0 0 0 / 0.45);
+  --shadow-card: 0 0 0 1px rgb(var(--border-subtle) / 0.6), var(--shadow-md);
+  --bubble-received: 34 38 47;
+  --bubble-received-ink: 237 239 243;
+}
+
+[data-mode='ai'] {
+  --accent: var(--accent-ai);
+  --accent-hover: var(--accent-ai-hover);
+  --accent-muted: var(--accent-ai-muted);
+  --focus-ring: var(--accent-ai);
+  --bubble-sent: var(--accent-ai);
+}
+
+[data-mode='team'] {
+  --accent: var(--accent-team);
+  --accent-hover: var(--accent-team-hover);
+  --accent-muted: var(--accent-team-muted);
+  --focus-ring: var(--accent-team);
+  --bubble-sent: var(--accent-team);
+}
+
+[data-mode='admin'] {
+  --accent: var(--ink);
+  --accent-hover: var(--ink-muted);
+  --accent-muted: var(--surface-muted);
+  --focus-ring: var(--ink-muted);
+  --bubble-sent: var(--ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 0ms;
+    --duration-normal: 0ms;
+    --duration-slow: 0ms;
+  }
+}
